@@ -1,107 +1,53 @@
-# Template for my NPM libraries
+# Santi's Small Summation Library
 
-Hello, everyone! This is a template repo for my libraries.
-You'll find a readme template inside this file.
+[![Build Status](https://github.com/santi100a/summation-lib/actions/workflows/ci.yml/badge.svg)](https://github.com/santi100a/summation-lib/actions)
+[![npm homepage](https://img.shields.io/npm/v/@santi100/summation-lib)](https://npmjs.org/package/@santi100/summation-lib)
+[![GitHub stars](https://img.shields.io/github/stars/santi100a/summation-lib.svg)](https://github.com/santi100a/summation-lib)
+[![License](https://img.shields.io/github/license/santi100a/summation-lib.svg)](https://github.com/santi100a/summation-lib)
+[![Bundlephobia stats](https://img.shields.io/bundlephobia/min/@santi100/summation-lib)](https://bundlephobia.com/package/@santi100/summation-lib@latest)
 
-In order for the CI workflow's publishing jobs to execute successfully, you must have two
-Actions secrets set up -- `NPM_AUTH_TOKEN` and `GPR_AUTH_TOKEN`.
-They're set to a default dummy value "your-token-here".
-You might want to check the [YAML Actions workflow](.github/workflows/ci.yml) for hints
-and information you may want or need to know.
+- 📘 Comes with built-in TypeScript definitions
+- 🚀 Lightweight and fast
+- 👴 Compliant with ECMAScript 3
 
-## Template features
+## API
 
-- License (both template contents and code built from it): MIT.
-- Code of conduct: adapted from the Contributor Covenant.
-- Package manager: Yarn 1.22.19.
-- Automatic testing: Jest.
-- TypeScript 4.9.5 for built-in type definitions and support for compiling to ES3.
-- ESLint and Prettier.
-- Security policy and contribution guidelines.
+- `function sum(arr: number[]): number;` Sum up the numbers in an array.
+  |Name | Type | Description | Optional? |
+  |------|----------|-----------------------------------------|-----------|
+  |`arr` | `number[]` | An array of numbers. | No |
 
-- Self-made scripts for verification of package.json and creation of an ESM wrapper
-  around TypeScript's CommonJS output to allow for usage within both CJS and ESM projects.
+  Returns the sum of all numbers in the array.
 
-<!-- START README TEMPLATE -->
-<!-- 
-* Make sure to replace ALL placeholders.
-! The readme will be broken otherwise!
--->
+- `function sum(fn: (n: number) => number, start: number, end: number, step?: number): number;`
 
-<!-- # Library Name -->
-<!-- Badges -->
-<!-- Example: 
-[![Build Status][workflow badge]][repo actions]
-[![npm homepage][npm badge]][npm home]
-[![GitHub stars][stars badge]][repo url]
-[![License][license badge]][repo url]
-[![Bundlephobia stats][bundlephobia badge]][bundlephobia url]
+  Sums up numbers in [`start`, `end`] (with a step of `step`).
 
-[workflow badge]: https://github.com/<author>/<repo>/actions/workflows/ci.yml/badge.svg
-[npm badge]: https://img.shields.io/npm/v/@<author>/<repo>
-[stars badge]: https://img.shields.io/github/stars/<author>/<repo>.svg
-[license badge]: https://img.shields.io/github/license/<author>/<repo>.svg
-[bundlephobia badge]: https://img.shields.io/bundlephobia/min/@<author>/<repo>
+  | Name    | Type                    | Description                                            | Optional? |
+  | ------- | ----------------------- | ------------------------------------------------------ | --------- |
+  | `fn`    | `(n: number) => number` | A math function to process every number in the range.  | No        |
+  | `start` | `number`                | Inclusive start of the range.                          | No        |
+  | `end`   | `number`                | Inclusive end of the range.                            | No        |
+  | `step`  | `number`                | Optional step between every iteration (defaults to 1). | Yes       |
 
-[npm home]: https://npmjs.org/package/@<author>/<repo>
-[repo actions]: https://github.com/<author>/<repo>/actions
-[repo url]: https://github.com/<author>/<repo>
-[bundlephobia url]: https://bundlephobia.com/package/@<author>/<repo>@latest
--->
+  Returns the sum of [`start`, `end`] with a step of `step`.
 
-<!-- Bullet points -->
-<!-- Example:
-- 🚀 Lightweight and fast[^](#disclaimers)
-- 👴 ES3-compliant[*](#disclaimers)
-- 💻 Portable between the browser and Node.js
--->
+## Usage
 
-<!-- ## What's this? -->
-<!-- Description -->
-
-<!-- Mentions, inspirations -->
-
-<!-- ## Installation -->
-<!-- Installation steps and/or commands -->
-<!-- Example:
-- Via NPM: `npm install @<author>/<repo>`
-- Via Yarn: `yarn add @<author>/<repo>`
-- Via PNPM: `pnpm install @<author>/<repo>`
--->
-
-<!-- ## API -->
-<!--
-* If a class/function/variable is deprecated, you must cross it out by wrapping the 
-* `<class/function/variable prototype/definition/type def>;` with tildes, like this:
-* ~~`<class/function/variable prototype/definition/type def>;`~~ (deprecated [since <version>])
-
-- `<class/function/variable prototype/definition/type def>;` ([since <version if not first version>]) ([deprecated [since <version>]]) <description>
-   | Name       |     Type    | Description        | Optional? | Default                                |
-   |------------|-------------|--------------------|-----------|----------------------------------------|
-   |<param name>|<param type> |<param description> | <Yes/No>  | <N/A if not optional, else the default>|
-- ...
--->
-
-<!-- ## Usage -->
-<!-- Usage examples (code snippets) -->
-<!-- 
-Usage examples go here
-* This is a very important step.
 ```typescript
+import sum from '@santi100/summation-lib'; // ESM
+const sum = require('@santi100/summation-lib')['default']; // CJS
+
+// Example 1: Summing up numbers in an array
+const arr = [1, 2, 3, 4, 5];
+const result1 = sum(arr);
+console.log(result1); // Output: 15
+
+// Example 2: Summing up numbers in a range with a step
+const fn = (n: number) => 1 / n;
+const start = 1;
+const end = 5;
+const step = 2;
+const result2 = sum(fn, start, end, step);
+console.log(result2); // Output: 1.5333333333333332
 ```
--->
-<!-- ## Contribute -->
-
-<!-- Contribution hints and basic instructions -->
-<!-- Example:
-Wanna contribute? [File an issue](issues) or [pull request](pulls)! 
-Look at [the contribution instructions](CONTRIBUTING.md) and make sure you follow the [contribution Code of Conduct](CODE_OF_CONDUCT.md).
--->
-
-<!-- ## Disclaimers -->
-<!-- Any disclaimers you may need. -->
-<!--
-**Hasn't been tested in an actual ES3 environment. Feel free to open an issue or pull request if you find any non-ES3 thing. See "Contribute" for instructions on how to do so.*
-
-*^The source code is just a few kilobytes in size.*
--->

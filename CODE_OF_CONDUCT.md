@@ -55,7 +55,7 @@ a project may be further defined and clarified by me.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to me at [maintainer contact method].
+reported to me at <santyrojasprieto9+conducts@gmail.com>.
 All complaints will be reviewed and investigated promptly and fairly.
 
 I'm obligated to respect the privacy and security of the

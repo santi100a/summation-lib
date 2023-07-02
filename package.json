@@ -1,10 +1,13 @@
 {
-  "name": "@author/package",
+  "name": "@santi100/summation-lib",
   "version": "0.0.1",
   "main": "cjs/index.js",
-  "module": "index.js",
   "typings": "cjs/index.d.ts",
+  "module": "index.js",
   "license": "MIT",
+  "author": "santi100a <santyrojasprieto9+npmauthor@gmail.com>",
+  "description": "Santi's Small Summation Library: Easily use Σ in your JavaScript!",
+  "keywords": ["math", "santi100", "es3", "minimal", "portable", "small", "summation", "sum"],
   "devDependencies": {
     "@types/jest": "29.5.1",
     "@typescript-eslint/eslint-plugin": "5.60.1",
@@ -18,11 +21,13 @@
     "remark-validate-links": "^12.1.1",
     "typescript": "^4.9.5"
   },
-  "author": "",
-  "description": "",
-  "keywords": [],
   "repository": {
-    "url": "https://github.com/<author>/<repo>"
+    "url": "https://github.com/santi100a/summation-lib",
+    "type": "git"
+  },
+  "funding": {
+    "url": "https://github.com/sponsors/santi100a",
+    "type": "github"
   },
   "scripts": {
     "build": "tsc",
@@ -37,5 +42,8 @@
     "check-links": "remark --frail .",
     "postbuild": "yarn esm-wrapper",
     "prepublishOnly": "yarn validate-package-json"
+  },
+  "dependencies": {
+    "@santi100/assertion-lib": "^1.0.8"
   }
 }
