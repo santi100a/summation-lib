@@ -1,0 +1,9 @@
+# Delete my FUNDING.yml and rename this file to 
+# FUNDING.yml. Then go into it and replace 
+# [your username] with your GitHub username.
+
+github: [your username]
+
+# Uncomment if using Open Collective
+# open_collective: [your-open-collective-path]
+# Open Collective path example: https://opencollective.com/[your-open-collective-path]

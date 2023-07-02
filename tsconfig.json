@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "outDir": "cjs/",
+        "declaration": true,
+        "target": "es3",
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules"]
+}
