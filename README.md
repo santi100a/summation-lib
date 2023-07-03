@@ -36,7 +36,7 @@
 
 ```typescript
 import sum from '@santi100/summation-lib'; // ESM
-const sum = require('@santi100/summation-lib')['default']; // CJS
+const sum = require('@santi100/summation-lib'); // CJS
 
 // Example 1: Summing up numbers in an array
 const arr = [1, 2, 3, 4, 5];

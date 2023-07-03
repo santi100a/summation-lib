@@ -12,7 +12,7 @@ import {
  * @param arr An array of numbers.
  * @returns The sum of all numbers in the array.
  */
-export default function sum(arr: number[]): number;
+function sum(arr: number[]): number;
 /**
  * Sum up numbers in [`start`, `end`] (with a step of `step`).
  *
@@ -22,26 +22,19 @@ export default function sum(arr: number[]): number;
  * @param step Optional step between every iteration (defaults to 1).
  * @returns The sum of [`start`, `end`] with a step of `step`.
  */
-export default function sum(
+function sum(
 	fn: (n: number) => number,
 	start: number,
 	end: number,
 	step?: number
 ): number;
 
-export default function sum(
+function sum(
 	arrOrFn: number[] | ((n: number) => number),
 	start?: number,
 	end?: number,
 	step = 1
 ) {
-	if (
-		(isNaN(start!) || isNaN(end!) || isNaN(step)) &&
-		start !== undefined &&
-		end !== undefined &&
-		step !== undefined
-	)
-		return NaN;
 	if (arrOrFn instanceof Array) {
 		let sum = 0;
 		for (const n of arrOrFn) {
@@ -51,8 +44,8 @@ export default function sum(
 		return sum;
 	} else if (typeof arrOrFn === 'function') {
 		let sum = 0;
-		assertTypeOf(start, 'number', 'start');
 		assertTypeOf(end, 'number', 'end');
+		assertTypeOf(start, 'number', 'start');
 		assertTypeOf(step, 'number', 'step');
 
 		assertExclusiveMax(start, Infinity, 'start');
@@ -64,6 +57,8 @@ export default function sum(
 		assertExclusiveMax(step, Infinity, 'step');
 		assertExclusiveMin(step, -Infinity, 'step');
 
+		if (isNaN(start!) || isNaN(end!) || isNaN(step)) return NaN;
+
 		for (let i = start!; i <= end!; i += step) {
 			const result = arrOrFn(i);
 			assertTypeOf(result, 'number', 'result');
@@ -71,5 +66,12 @@ export default function sum(
 			sum += result;
 		}
 		return sum;
+	} else {
+		throw new TypeError(
+			`"arrOrFn" must be of type "function" or an instance of Array. Got "${arrOrFn}" of type "${typeof arrOrFn}".`
+		);
 	}
 }
+sum.default = sum; // for backward compatibility
+
+export = sum;

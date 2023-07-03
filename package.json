@@ -1,6 +1,6 @@
 {
 	"name": "@santi100/summation-lib",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"main": "cjs/index.js",
 	"typings": "cjs/index.d.ts",
 	"module": "index.js",

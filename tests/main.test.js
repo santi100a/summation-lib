@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 describe('sum_function', () => {
-    const sum = require('..')['default'];
+    const sum = require('..');
     // Tests that the function correctly sums an array of positive numbers
     it('test_sum_positive_numbers', () => {
         expect(sum([1, 2, 3])).toBe(6);
@@ -50,5 +50,34 @@ describe('sum_function', () => {
     });
     test('edge case: math function returns NaN', () => {
         expect(sum(() => NaN, 1, 5)).toBe(NaN);
+    });
+    test('edge case: first argument is not a number', () => {
+        expect(() => sum('not a function or array', 1, 5)).toThrow(TypeError);
+    });
+    test('edge case: second argument is not a number', () => {
+        expect(() => sum(Math.sin, 'not a number', 2)).toThrow(TypeError);
+    });
+    test('edge case: third argument is not a number', () => {
+        expect(() => sum(Math.sin, 1, 'not a number')).toThrow(TypeError);
+    });
+    test('edge case: fourth argument is not a number', () => {
+        expect(() => sum(Math.sin, 1, 5, 'not a number')).toThrow(TypeError);
+    });
+
+    test('edge case: first argument is ±Infinity', () => {
+        expect(() => sum(Infinity, 1, 5)).toThrow(TypeError);
+        expect(() => sum(-Infinity, 1, 5)).toThrow(TypeError);
+    });
+    test('edge case: second argument is ±Infinity', () => {
+        expect(() => sum(Math.sin, Infinity, 2)).toThrow(TypeError);
+        expect(() => sum(Math.sin, -Infinity, 2)).toThrow(TypeError);
+    });
+    test('edge case: third argument is ±Infinity', () => {
+        expect(() => sum(Math.sin, 1, Infinity)).toThrow(TypeError);
+        expect(() => sum(Math.sin, 1, -Infinity)).toThrow(TypeError);
+    });
+    test('edge case: fourth argument is ±Infinity', () => {
+        expect(() => sum(Math.sin, 1, 5, Infinity)).toThrow(TypeError);
+        expect(() => sum(Math.sin, 1, 5, -Infinity)).toThrow(TypeError);
     });
 });
