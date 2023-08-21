@@ -666,17 +666,10 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
-"@santi100/assertion-lib@^1.0.8":
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@santi100/assertion-lib/-/assertion-lib-1.0.8.tgz#549182e6eeaae693081532405af653920985513b"
-  integrity sha512-bgxIXipilU2ddeDyS6rZBLIr2aV4s9i323ajs1SCCWoIaRyGRDW31ZoKFeXOA/cJntwZFOD0AXopTcYti8nnjQ==
-  dependencies:
-    "@santi100/equal-lib" "^1.0.8"
-
-"@santi100/equal-lib@^1.0.8":
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/@santi100/equal-lib/-/equal-lib-1.0.9.tgz#bac892efb695f12032eda478f6f8868ba49170c3"
-  integrity sha512-PWimpdu6YA0gEfFCfYuwS79qUIX+et5CIunSCnXOZJVm7oTS1sL3fhfRp6V7R3fjoDFgWHGs23m6C+r9NIxuLQ==
+"@santi100/assertion-lib@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@santi100/assertion-lib/-/assertion-lib-2.0.2.tgz#9e8fe5216a426d4c6a0f4fa644bce1b972b2df63"
+  integrity sha512-u+V6pNuXcgFvcr/ZWD7l1gifZyIDrd4dSsW/dyWO147JOxPFWcxPfDLPPTv8+O3DXILTybvRv1umvW1CS9f/SA==
 
 "@sinclair/typebox@^0.25.16":
   version "0.25.24"
