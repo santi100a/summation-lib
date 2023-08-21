@@ -53,6 +53,6 @@
 		"prepublishOnly": "yarn validate-package-json"
 	},
 	"dependencies": {
-		"@santi100/assertion-lib": "^1.0.8"
+		"@santi100/assertion-lib": "^2.0.2"
 	}
 }
